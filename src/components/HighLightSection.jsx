@@ -8,7 +8,7 @@ import toffee from "../../public/images/icons/4.png";
 
 const HighLightSection = () => {
     return (
-        <div className='flex flex-col md:flex-row sm:flex-col justify-center py-14 px-10 gap-4 space-y-5' style={{backgroundImage: `url('${recImg}')`}}>
+        <div className='flex flex-col md:flex-row sm:flex-col justify-center py-14 px-10 gap-4 space-y-5 md:space-y-0' style={{backgroundImage: `url('${recImg}')`}}>
             <div className=' flex flex-col space-y-3'>
                 <img className='w-14 h-14' src={coffee} alt="coffee" />
                 <h3 className='text-2xl font-semibold text-[#331A15]'>Awesome Aroma</h3>
