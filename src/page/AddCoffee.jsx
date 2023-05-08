@@ -1,4 +1,4 @@
-import React from "react";
+import Swal from 'sweetalert2'
 import recImg from "../../public/images/more/11.png";
 import { NavLink } from "react-router-dom";
 import { BiLeftArrowAlt } from "react-icons/bi";
@@ -19,7 +19,28 @@ const AddCoffee = () => {
         const coffeeDetails = form.coffeeDetails.value
         const coffeePhotoUrl = form.coffeePhotoUrl.value
 
-        console.log(coffeeName, chefName, coffeeSupplier, taste, coffeeCategory, coffeeDetails, coffeePhotoUrl)
+        // console.log(coffeeName, chefName, coffeeSupplier, taste, coffeeCategory, coffeeDetails, coffeePhotoUrl)
+        
+        const newCoffee = { coffeeName, chefName, coffeeSupplier, taste, coffeeCategory, coffeeDetails, coffeePhotoUrl }
+
+        fetch('http://localhost:3000/coffee',{
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newCoffee)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.acknowledged) {
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'New Coffee Added Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                  })
+            }
+        })
 
         form.reset()
     }
@@ -142,7 +163,23 @@ const AddCoffee = () => {
                 placeholder="Enter Coffee details"
               />
             </div>
-            <div className="md:col-span-2">
+            <div>
+              <label
+                className="block text-gray-700 font-bold mb-2"
+                htmlFor="price"
+              >
+                Price
+              </label>
+
+              <input
+                className="border border-gray-400 p-2 w-full rounded-md placeholder:font-extralight "
+                type="text"
+                name="coffeePrice"
+                id="price"
+                placeholder="Enter Coffee Price"
+              />
+            </div>
+            <div>
               <label
                 className="block text-gray-700 font-bold mb-2"
                 htmlFor="coffee_photo_url"
