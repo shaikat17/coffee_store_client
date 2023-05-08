@@ -7,11 +7,13 @@ import {
 import App from './App.jsx'
 import './index.css'
 import Home from './page/Home.jsx';
+import ErrorPage from './page/ErrorPage.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
