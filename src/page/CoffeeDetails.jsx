@@ -50,7 +50,7 @@ const CoffeeDetails = () => {
             Details: <span className="font-light">{coffee.coffeeDetails}</span>
           </p>
           <p className="font-medium">
-            Price: <span className="font-light">{coffee.coffeeName}</span>
+            Price: <span className="font-light">{coffee.coffeePrice}</span>
           </p>
         </div>
       </div>
