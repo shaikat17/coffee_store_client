@@ -2,8 +2,42 @@ import recImg from "../../public/images/more/Rectangle 5.png";
 import { AiOutlineEye } from 'react-icons/ai'
 import { HiPencil } from 'react-icons/hi'
 import { FaTrash } from 'react-icons/fa'
+import Swal from "sweetalert2";
+import { NavLink } from "react-router-dom";
 
 const SingleCoffee = ({ coffee }) => {
+
+  const handleDelete = id => {
+    // e.preventDefault()
+    console.log(id)
+
+    Swal.fire({
+      title: 'Are you want to delete it?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:3000/coffee/${id}`, {
+          method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+          // console.log(data)
+          if(data.deletedCount > 0) {
+            Swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
+          }
+        })
+      }
+    })
+  }
   return (
     <div className="flex items-center justify-center" style={{ backgroundImage: `url('${recImg}')` }}>
       <figure>
@@ -18,10 +52,10 @@ const SingleCoffee = ({ coffee }) => {
         <p>Price: {coffee.coffeePrice} Taka</p>
         </div>
         <div className="card-actions">
-          <div className="btn-group btn-group-vertical">
+          <div className="btn-group btn-group-vertical space-y-3 mr-2">
             <button className="btn bg-[#D2B48C] border-none"><AiOutlineEye /></button>
-            <button className="btn bg-[#3C393B] border-none"><HiPencil /></button>
-            <button className="btn bg-[#EA4744] border-none"><FaTrash /></button>
+            <NavLink className="btn bg-[#3C393B] border-none"><HiPencil /></NavLink>
+            <button className="btn bg-[#EA4744] border-none" onClick={() => handleDelete(coffee._id)}><FaTrash /></button>
           </div>
         </div>
       </div>

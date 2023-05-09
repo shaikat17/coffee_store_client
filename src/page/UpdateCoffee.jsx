@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { BiLeftArrowAlt } from "react-icons/bi";
 import recImg2 from "../../public/images/more/Rectangle 4.png";
 
-const AddCoffee = () => {
+const UpdateCoffee = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -206,4 +206,4 @@ const AddCoffee = () => {
   );
 };
 
-export default AddCoffee;
+export default UpdateCoffee;
