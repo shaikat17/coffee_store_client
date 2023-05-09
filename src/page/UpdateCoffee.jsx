@@ -11,7 +11,7 @@ const UpdateCoffee = () => {
 //   console.log(id);
 
   const getCoffee = () => {
-    fetch(`http://localhost:3000/coffee/${id}`)
+    fetch(`https://coffee-store-server-shaikatpal56-gmailcom.vercel.app/coffee/${id}`)
     .then((res) => res.json())
     .then((data) => setcoffee(data));
   }
@@ -47,7 +47,7 @@ const UpdateCoffee = () => {
     };
     console.log(newCoffee)
 
-    fetch(`http://localhost:3000/coffee/${coffee._id}`, {
+    fetch(`https://coffee-store-server-shaikatpal56-gmailcom.vercel.app/coffee/${coffee._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

@@ -21,7 +21,7 @@ const SingleCoffee = ({ coffee, setCoffees }) => {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/coffee/${id}`, {
+        fetch(`https://coffee-store-server-shaikatpal56-gmailcom.vercel.app/coffee/${id}`, {
           method: 'DELETE'
         })
         .then(res => res.json())
@@ -40,7 +40,7 @@ const SingleCoffee = ({ coffee, setCoffees }) => {
     })
   }
   return (
-    <div className="flex items-center justify-center" style={{ backgroundImage: `url('${recImg}')` }}>
+    <div className="flex items-center justify-center p-3" style={{ backgroundImage: `url('${recImg}')` }}>
       <figure>
         <img
           src={coffee.coffeePhotoUrl}
