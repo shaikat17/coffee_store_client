@@ -5,7 +5,7 @@ import { FaTrash } from 'react-icons/fa'
 import Swal from "sweetalert2";
 import { NavLink } from "react-router-dom";
 
-const SingleCoffee = ({ coffee }) => {
+const SingleCoffee = ({ coffee, setCoffees }) => {
 
   const handleDelete = id => {
     // e.preventDefault()
@@ -33,6 +33,7 @@ const SingleCoffee = ({ coffee }) => {
               'Your file has been deleted.',
               'success'
             )
+            setCoffees(prev => prev.filter(coffee => coffee._id !== id))
           }
         })
       }
@@ -54,7 +55,7 @@ const SingleCoffee = ({ coffee }) => {
         <div className="card-actions">
           <div className="btn-group btn-group-vertical space-y-3 mr-2">
             <button className="btn bg-[#D2B48C] border-none"><AiOutlineEye /></button>
-            <NavLink className="btn bg-[#3C393B] border-none"><HiPencil /></NavLink>
+            <NavLink to={`/update-coffee/${coffee._id}`} className="btn bg-[#3C393B] border-none"><HiPencil /></NavLink>
             <button className="btn bg-[#EA4744] border-none" onClick={() => handleDelete(coffee._id)}><FaTrash /></button>
           </div>
         </div>

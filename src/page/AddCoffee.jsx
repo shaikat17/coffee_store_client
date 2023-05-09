@@ -198,7 +198,7 @@ const AddCoffee = () => {
             </div>
           </div>
           <button className="w-36 p-3 hover:bg-[#331A15] border border-[#331A15] text-[#331A15] hover:text-white hover:ease-in duration-300 rounded mt-5">
-            Send Message
+            Add Coffee
           </button>
         </form>
       </div>
