@@ -54,7 +54,7 @@ const SingleCoffee = ({ coffee, setCoffees }) => {
         </div>
         <div className="card-actions">
           <div className="btn-group btn-group-vertical space-y-3 mr-2">
-            <button className="btn bg-[#D2B48C] border-none"><AiOutlineEye /></button>
+            <NavLink to={`coffee-details/${coffee._id}`} className="btn bg-[#D2B48C] border-none"><AiOutlineEye /></NavLink>
             <NavLink to={`/update-coffee/${coffee._id}`} className="btn bg-[#3C393B] border-none"><HiPencil /></NavLink>
             <button className="btn bg-[#EA4744] border-none" onClick={() => handleDelete(coffee._id)}><FaTrash /></button>
           </div>

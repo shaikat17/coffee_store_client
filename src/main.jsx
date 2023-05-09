@@ -11,6 +11,7 @@ import ErrorPage from './page/ErrorPage.jsx';
 import AddCoffee from './page/AddCoffee.jsx';
 import Layout from './page/Layout.jsx';
 import UpdateCoffee from './page/UpdateCoffee.jsx';
+import CoffeeDetails from './page/CoffeeDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,16 @@ const router = createBrowserRouter([
       {
         path: "/update-coffee/:id",
         element: <UpdateCoffee />
+      }
+    ]
+  },
+  {
+    path: "/coffee-details/:id",
+    element: <Layout />,
+    children: [
+      {
+        path: "/coffee-details/:id",
+        element: <CoffeeDetails />
       }
     ]
   }
